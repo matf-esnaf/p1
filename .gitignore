@@ -1,2 +1,4 @@
 # Ignore all compiled files
+#
+# Za ime boga nemojte pushovati svoje compiled fajlove
 *.out
