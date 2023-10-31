@@ -1,0 +1,4 @@
+onaj
+sto
+sam
+te
