@@ -2,4 +2,4 @@
 # 
 # Za ime boga nemojte pushovati svoje compiled fajlove
 *.out
-*.DS_Store
+.DS_Store
