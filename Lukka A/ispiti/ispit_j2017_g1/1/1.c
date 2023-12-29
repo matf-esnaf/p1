@@ -1,22 +1,25 @@
 #include <stdio.h>
 #include <math.h>
-int main()
-{
-	int xpre, xposle=0, faktor=-1, cifra=0, novacifra=0;
 
-	printf("Unesite proizvoljan broj: ");
-		scanf("%d", &xpre);
+int main(){
 
-	while(xpre!=0){
-		cifra=xpre%10;
-	if(cifra%2!=0){
-		faktor++;
-		novacifra=cifra*pow(10, faktor);
-		xposle+=novacifra;
-	}
-	xpre=xpre/10;
-	}
-	printf("Novi dobijeni broj nakon izbacivanja parnih cifara je: %d.\n", xposle);
+	int n;
+
+	printf("Unesite jedan broj: ");
+	scanf("%d", &n);
+
+	int n1=n, n2=0, k=0;
 	
-return 0;
-}
+	for(int i=0; n1!=0; i++){
+		int c=n1%10;
+		if(c%2!=0){
+			n2+=c*pow(10, k);
+			k++;
+		}
+		n1/=10;
+	}
+
+	printf("Novi broj: %d", n2);
+
+	return 0;
+}		
