@@ -1,44 +1,52 @@
 #include <stdio.h>
-#include <string.h>
 #include <ctype.h>
+#include <string.h>
 
-// Funkcija koja proverava da li se reč može sastaviti od karaktera reči "programiranje"
-int mozeSeSastaviti(char *rec) {
-    char trazenaRec[] = "programiranje";
-    int duzinaTrazeneReci = strlen(trazenaRec);
-    int karakteri[26] = {0}; // Inicijalizujemo niz za brojanje karaktera
+void funkcija (char s[], char lista[]);
 
-    // Brojimo karaktere u trazenoj reci
-    for (int i = 0; i < duzinaTrazeneReci; i++) {
-        karakteri[tolower(trazenaRec[i]) - 'a']++;
-    }
+int main(){
 
-    // Proveravamo da li se reč može sastaviti od karaktera trazene reci
-    for (int i = 0; i < strlen(rec); i++) {
-        char c = tolower(rec[i]);
-        if (isalpha(c)) {
-            if (karakteri[c - 'a'] == 0) {
-                return 0; // Karakter nije prisutan u trazenoj reci
-            } else {
-                karakteri[c - 'a']--;
-            }
-        }
-    }
+	char s[21];
+	char lista[200];
 
-    return 1; // Reč se može sastaviti
+	printf("Ulaz until EOF: ");
+	while (scanf("%20s", s) != EOF){
+		funkcija(s, lista);
+	}	
+
+	printf("\nIzlaz: %s", lista);
+
+	return 0;
 }
 
-int main() {
-    char rec[21]; // Maksimalna dužina reči je 20 karaktera + null terminator
+void funkcija (char s[], char lista[]){
 
-    printf("Unesite reci (EOF za kraj unosa):\n");
+	char prog[] = "programiranje";
 
-    while (scanf("%20s", rec) != EOF) {
-        if (mozeSeSastaviti(rec)) {
-            printf("%s\n", rec);
-        }
-    }
+	int d = strlen (prog);
+	int d1 = strlen (s);
 
-    return 0;
+	int brojac=0;
+
+	for(int i=0; i<d1; i++){
+		int pronadjen = 0;
+		for(int j=0; j<d; j++){
+			if(tolower(s[i])==prog[j]){
+				for(int k=0; k<=j;k++){
+					prog[k]='0';
+				}
+				pronadjen = 1;
+				break;
+			}
+		}
+		if(pronadjen!=1){
+			break;
+		}
+		brojac++;
+	}
+
+	if(brojac==d1){
+		strcat(lista, s);
+		strcat(lista, " ");	
+	}
 }
-
