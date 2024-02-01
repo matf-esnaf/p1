@@ -1,5 +1,5 @@
-# zbirka-p1
-Zbirka resenih zadataka programiranje 1
+# P1
+Programiranje 1
 
 JA SAM U TVOJIM ZIDOVIMA
 JA SAM U TVOJIM ZIDOVIMA
